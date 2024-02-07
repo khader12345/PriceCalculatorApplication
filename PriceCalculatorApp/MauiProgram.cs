@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 
 namespace PriceCalculatorApp
+
+//Project Created
+
 {
     public static class MauiProgram
     {
