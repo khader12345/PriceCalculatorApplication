@@ -2,6 +2,7 @@
 {
     public class Bill
     {
+        private const double DefaultTax = 0.13;
         public double PricePerItem { get; set; }
         public double Discount { get; set; }
         public int NumberOfItems { get; set; }

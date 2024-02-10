@@ -19,7 +19,9 @@ namespace PriceCalculatorApp
         {
             try
             {
-                
+                double PricePerItem = double.Parse(pricePerItemEntry.Text);
+                int NumberOfItems = int.Parse(numberItemsEntry.Text);
+                double Discount = double.Parse(discountPicker.SelectedItem.ToString());
             }
         }
     }
