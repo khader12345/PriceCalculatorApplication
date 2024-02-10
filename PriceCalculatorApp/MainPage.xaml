@@ -31,7 +31,7 @@
             <Label Grid.Row="1" Grid.Column="0" Text="Price" TextColor="Black"/>
             <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="pricePerItemEntry" Placeholder="Price Per Item" Keyboard="Numeric"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Text="Discount %" TextColor="Black" LabelText="Add Discount"/>
+            <Label Grid.Row="2" Grid.Column="0" Text="Discount %" TextColor="Black" />
             <Picker Grid.Row="2" Grid.Column="1" x:Name="discountPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
