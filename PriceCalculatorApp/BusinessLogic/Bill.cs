@@ -36,7 +36,7 @@
 
         public override string ToString() 
         {
-            return $"Total: {Total:c2}";
+            
 
 
 
