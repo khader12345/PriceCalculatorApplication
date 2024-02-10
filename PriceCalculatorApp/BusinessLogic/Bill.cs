@@ -33,14 +33,6 @@
             TotalProperty = totalproperty; 
 
         }
-
-        public override string ToString() 
-        {
-            
-
-
-
-        }
     
     
     }

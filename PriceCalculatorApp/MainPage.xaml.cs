@@ -1,28 +1,29 @@
-﻿using PriceCalculatorApp.BusinessLogic;
-using System;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Extensions.Logging;
 
 namespace PriceCalculatorApp
 {
 
-    public partial class MainPage : ContentPage
+    public static class MauiProgram
     {
-
-        public MainPage()
+        public static MauiApp CreateMauiApp()
         {
-            InitializeComponent();
-            discountPicker.SelectedIndex = 0;
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                });
+
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+            return builder.Build();
 
         }
 
-        private void CalculateClick (object sender, EventArgs e)
-        {
-            try
-            {
-                double PricePerItem = double.Parse(pricePerItemEntry.Text);
-                int NumberOfItems = int.Parse(numberItemsEntry.Text);
-                double Discount = double.Parse(discountPicker.SelectedItem.ToString());
-            }
-        }
+
+
     }
 }
