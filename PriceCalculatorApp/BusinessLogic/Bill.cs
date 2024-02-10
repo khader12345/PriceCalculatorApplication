@@ -8,6 +8,19 @@
         public bool TotalProperty { get; set; } 
 
 
+        public double Total
+        {
+            get
+            {
+                double total = PricePerItem * NumberOfItems;
+                if (TotalProperty)
+                {
+                    total -= Total * (Discount / 100);
+
+                }
+                return total;
+            }
+        }
     
     
     
