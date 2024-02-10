@@ -21,7 +21,23 @@
                 return total;
             }
         }
-    
+        
+        public Bill(double priceItem, double discount, int numberofitems, bool totalproperty)
+        {
+            PricePerItem = priceItem;
+            Discount = discount;
+            NumberOfItems = numberofitems;
+            TotalProperty = totalproperty; 
+
+        }
+
+        public override string ToString() 
+        {
+            return $"Total: {Total:c2}";
+
+
+
+        }
     
     
     }
