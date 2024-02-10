@@ -9,14 +9,16 @@
         public bool TotalProperty { get; set; } 
 
 
-        public double Total
+        public double TotalCalculation
         {
             get
             {
                 double total = PricePerItem * NumberOfItems;
+                total += total * DefaultTax;
+                
                 if (TotalProperty)
                 {
-                    total -= Total * (Discount / 100);
+                    total -= total * (Discount / 100.0);
 
                 }
                 return total;
@@ -25,9 +27,9 @@
         
         public Bill(double priceItem, double discount, int numberofitems, bool totalproperty)
         {
-            PricePerItem = priceItem;
+            PricePerItem = priceItem >= 0 ? priceItem :  throw new ArgumentOutOfRangeException(nameof(priceItem));
             Discount = discount;
-            NumberOfItems = numberofitems;
+            NumberOfItems = numberofitems >= 0 ? numberofitems : throw new ArgumentOutOfRangeException(nameof(numberofitems));
             TotalProperty = totalproperty; 
 
         }
