@@ -3,14 +3,18 @@
              x:Class="PriceCalculatorApp.MainPage"
              BackgroundColor="white">
 
+    <!-- Main layout container with vertical stacking -->
+
     <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center" HorizontalOptions="Center">
 
+        <!-- Title label for the app -->
 
         <Label Text="Price Calculator App"
                VerticalOptions="Center" 
                FontSize="Large" 
                TextColor="Black"/>
-        
+
+        <!-- Grid layout for input fields and labels -->
 
         <Grid ColumnSpacing="10">
             <Grid.RowDefinitions>
@@ -20,6 +24,8 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
+            <!-- Define columns for labels, input fields, and the checkbox -->
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -28,16 +34,25 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
+            <!-- User Name input -->
+
             <Label Grid.Row="0" Grid.Column="0" Text="User Name" TextColor="Black"/>
             <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="userNameEntry" Placeholder="User Name" TextColor="Black"/>
 
+            <!-- Price per item input -->
+
             <Label Grid.Row="1" Grid.Column="0" Text="Price" TextColor="Black"/>
             <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="pricePerItemEntry" Placeholder="Price Per Item" Keyboard="Numeric" TextColor="Black"/>
+
+            <!-- Discount percentage selection -->
 
             <Label Grid.Row="2" Grid.Column="0" Text="Discount %" TextColor="Black" />
             <Picker Grid.Row="2" Grid.Column="1" x:Name="discountPicker" TextColor="Black">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
+                        
+                        <!-- Discount options -->
+
                         <x:String>5</x:String>
                         <x:String>10</x:String>
                         <x:String>15</x:String>
@@ -45,14 +60,24 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
+
+            <!-- Checkbox to apply discount -->
+
             <CheckBox Grid.Row="2" Grid.Column="2" x:Name="addDiscountCheckBox" VerticalOptions="Center"/>
              <Label Grid.Row="2" Grid.Column="4" Text="Add Discount %" TextColor="Black"/>
+
+            <!-- Number of items input -->
+
             <Label Grid.Row="3" Grid.Column="0" Text="Number of Item" TextColor="Black"/>
             <Entry Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"  x:Name="numberItemsEntry" Placeholder="Number of Item" Keyboard="Numeric" PlaceholderColor="Grey" TextColor="Black"/>
         </Grid>
 
+        <!-- Calculate button -->
+
         <Button x:Name="calculateButton" Text="Calculate" BackgroundColor="#3700B3" TextColor="White" HorizontalOptions="FillAndExpand" Clicked="CalculateClick"/>
         <Button x:Name="clearButton" Text="Clear" BackgroundColor="#3700B3" TextColor="White" Clicked="ClearClick"/>
+
+        <!-- Label to display the calculation result -->
 
         <Label x:Name="resultLabel" HorizontalOptions="Center" TextColor="Black"/>
     </VerticalStackLayout>
