@@ -17,15 +17,23 @@ namespace PriceCalculatorApp
         {
             try
             {
-                double PricePerItem = double.Parse(pricePerItemEntry.Text);
-                int NumberOfItems = int.Parse(numberItemsEntry.Text);
-                double Discount = double.Parse(discountPicker.SelectedItem.ToString());
-                bool TotalProperty = plusDiscountCheckbox.IsChecked;
+                double pricePerItem = double.Parse(pricePerItemEntry.Text);
+                int numberOfItems = int.Parse(numberItemsEntry.Text);
+                string discountString = discountPicker.SelectedItem.ToString().Replace("%", "");
+                if (double.TryParse(discountString, out double discountPercent))
+                {
+                    double discount = discountPercent / 100.0; 
+                    bool plusDiscount = addDiscountCheckBox.IsChecked; 
 
-                var bill = new Bill(PricePerItem, NumberOfItems, Discount, TotalProperty);
-                double total = bill.TotalCalculation();
+                    var bill = new Bill(pricePerItem, discountPercent, (int)numberOfItems, plusDiscount);
+                    double total = bill.TotalCalculation();
 
-                resultLabel.Text = $"Total: {total:C2}";
+                    resultLabel.Text = $"Total: {total:C2}";
+                }
+                else
+                {
+                    resultLabel.Text = "Please select a valid discount.";
+                }
             }
             catch (FormatException)
             {
@@ -35,13 +43,16 @@ namespace PriceCalculatorApp
             {
                 resultLabel.Text = $"Invalid input: {ex.ParamName}";
             }
-
-        }
-                
-                
         }
 
-
-
+        private void ClearClick(object sender, EventArgs e)
+        {
+            userNameEntry.Text = string.Empty;
+            pricePerItemEntry.Text = string.Empty;
+            numberItemsEntry.Text = string.Empty;
+            discountPicker.SelectedIndex = 0;
+            addDiscountCheckBox.IsChecked = false; 
+            resultLabel.Text = "Total: ";
+        }
     }
 }
