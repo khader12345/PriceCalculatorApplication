@@ -1,14 +1,17 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using PriceCalculatorApp.BusinessLogic;
+using Microsoft.Maui.Controls;
+using System;
 
 namespace PriceCalculatorApp
 {
 
-    public static class MauiProgram
+    public partial class MainPage : ContentPage
     {
-        public static MauiApp CreateMauiApp()
+        public MainPage()
         {
-            var builder = MauiApp.CreateBuilder();
-            builder
+            InitializeComponent();
+            discountPicker.SelectedIndex = 0;
+        }
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {

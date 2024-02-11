@@ -2,7 +2,7 @@
 
 namespace PriceCalculatorApp
 
-//Project Created 1
+//Project Created 
 
 {
     public static class MauiProgram
